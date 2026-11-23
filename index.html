@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="lt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kliento anketa</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="anketa.js" defer></script>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Kliento anketa</h1>
+      <p>Užpildykite keturias anketos dalis. Prieš baigdami galėsite grįžti ir pataisyti duomenis.</p>
+    </header>
+    <div class="eiga">
+      <p id="busena" role="status"></p>
+      <progress id="eiga" aria-label="Anketos pildymo eiga" max="4" value="0"></progress>
+    </div>
+    <noscript>Anketai pildyti naršyklėje įjunkite JavaScript.</noscript>
+    <form id="anketa" autocomplete="off" hidden>
+      <section aria-labelledby="dalies-antraste">
+        <h2 id="dalies-antraste" tabindex="-1"></h2>
+        <div id="laukai" class="laukai"></div>
+      </section>
+      <div class="veiksmai">
+        <button id="atgal" type="button">Atgal</button>
+        <button id="toliau" type="submit">Toliau</button>
+      </div>
+    </form>
+    <section id="pabaiga" hidden aria-labelledby="pabaigos-antraste">
+      <h2 id="pabaigos-antraste" tabindex="-1">Ačiū, kad užpildėte apklausą!</h2>
+      <p>Jūsų duomenys nebus saugomi.</p>
+      <button id="is-naujo" type="button">Pildyti iš naujo</button>
+    </section>
+  </main>
+</body>
+</html>

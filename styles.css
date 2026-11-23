@@ -1,0 +1,73 @@
+:root {
+  font-family: system-ui, sans-serif;
+  color: #142d32;
+  background: #eef5f4;
+  line-height: 1.5;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+[hidden] { display: none !important; }
+
+main {
+  width: min(48rem, calc(100% - 2rem));
+  margin: clamp(1rem, 5vw, 4rem) auto;
+  padding: clamp(1rem, 5vw, 2.5rem);
+  border-radius: 1.25rem;
+  border: 1px solid #c2d8d4;
+  background: white;
+}
+
+h1, h2, p { margin: 0 0 .75rem; }
+h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); }
+.eiga {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: .65rem 0;
+  margin-bottom: 1rem;
+  background: white;
+  font-weight: 650;
+}
+
+progress { display: block; width: 100%; accent-color: #096457; }
+.laukai { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+.laukai > :has(> #santuokosIsimtis),
+.laukai:not(:has(#santuokosIsimtis)) > :has(> #vedybinePadetis) {
+  border-top: 1px solid #c2d8d4;
+  padding-top: 1rem;
+}
+label { display: block; font-weight: 650; margin-bottom: .3rem; }
+small { display: block; margin-top: .35rem; color: #425c60; }
+small.klaida { color: #a12222; }
+input, select, button {
+  font: inherit;
+  min-width: 0;
+  min-height: 2.75rem;
+  padding: .55rem .75rem;
+  border-radius: .55rem;
+  border: 1px solid #718e8c;
+}
+
+input, select { width: 100%; background: white; color: inherit; scroll-margin-top: 6rem; }
+input[readonly] { background: #edf5f3; }
+:focus-visible { outline: 3px solid #287bc1; outline-offset: 3px; }
+.veiksmai { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem; margin-top: 1.5rem; }
+button { background: #096457; color: white; border-color: #096457; cursor: pointer; }
+#atgal { background: white; color: #096457; }
+#toliau { margin-left: auto; }
+
+@media (min-width: 38.01rem) {
+  .laukai { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .laukai > * { grid-column: span 3; }
+  .laukai > .platus { grid-column: 1 / -1; }
+  .laukai > :has(> #vardas) { grid-column: 1 / span 2; }
+  .laukai > :has(> :is(#antrasVardas, #pavarde)) { grid-column: span 2; }
+  .laukai > :has(> :is(#santuokosIsimtis, #vedybinePadetis)) { grid-column: 1 / -1; }
+  .laukai > :has(> #sutuoktinioVardas) { grid-column: 1 / span 3; }
+  .laukai > :has(> :is(#vardas, #antrasVardas, #pavarde)) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+}
